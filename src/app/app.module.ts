@@ -12,6 +12,9 @@ import { NoteListComponent } from './note-list/note-list.component';
 import { NoteComponent } from './note-list/note/note.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,14 +26,16 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HeaderComponent,
     EditNoteComponent,
     PageNotFoundComponent,
-    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgSelectModule
+    NgSelectModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig) 
   ],
+
   providers: [],
   bootstrap: [HomeComponent]
 })
