@@ -1,0 +1,79 @@
+
+{
+    "notes": [
+        {
+            "id": 1,
+            "title": "note1",
+            "details": "this the first note in the json file",
+            "modifiedDate": 1632319083633,
+            "tags": [
+                {
+                    "id": 1,
+                    "name": "music",
+                    "modifiedDate": 1632319083633
+                },
+                {
+                    "id": 2,
+                    "name": "todo",
+                    "modifiedDate": 1632319083633
+                }
+            ],
+            "attachments": []
+        },
+        {
+            "id": 2,
+            "title": "note2",
+            "details": "this the second note in the json file",
+            "modifiedDate": 1632319083633,
+            "tags": [
+                {
+                    "id": 1,
+                    "name": "music",
+                    "modifiedDate": 1632319083633
+                },
+                {
+                    "id": 2,
+                    "name": "todo",
+                    "modifiedDate": 1632319083633
+                }
+            ],
+            "attachments": []
+        },
+        {
+            "id": 3,
+            "title": "note3",
+            "details": "this the third note in the json file",
+            "modifiedDate": 1632319083633,
+            "tags": [
+                {
+                    "id": 1,
+                    "name": "music",
+                    "modifiedDate": 1632319083633
+                },
+                {
+                    "id": 2,
+                    "name": "todo",
+                    "modifiedDate": 1632319083633
+                }
+            ],
+            "attachments": []
+        }
+    ],
+    "tags": [
+        {
+            "id": 1,
+            "name": "music",
+            "modifiedDate": 1632319083633
+        },
+        {
+            "id": 2,
+            "name": "todo",
+            "modifiedDate": 1632319083633
+        },
+        {
+            "id": 3,
+            "name": "work",
+            "modifiedDate": 1632319083633
+        }
+    ]
+}

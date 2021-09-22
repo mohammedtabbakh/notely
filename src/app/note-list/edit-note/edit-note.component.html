@@ -1,0 +1,33 @@
+<form class="m-2" (ngSubmit)="saveChanges()">
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="noteHeader">Note Title</label>
+        <input type="text" id="noteTitle" class="form-control" [(ngModel)]="note.title" name="noteTitle" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-outline mb-4">
+    <label class="form-label" for="noteDetails">Note details</label>
+    <textarea id="noteDetails" class="form-control" name="noteDetails" [(ngModel)]="note.details"></textarea>
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="tags">Note details</label>
+    <ng-select
+    [items]="tags"
+    [multiple]="true"
+    [closeOnSelect]="true"
+    [searchable]="true"
+    bindLabel="name"
+    [ngModelOptions]="{standalone: true}"
+    placeholder="Select tags"
+    [(ngModel)]="note.tags">
+  </ng-select>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">Save Changes</button>
+
+</form>

@@ -1,0 +1,16 @@
+<div class="note">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title font-weight-bold text-capitalize">{{note.title}}</h5>
+      <hr>
+      <p class="card-text">{{note.details |  slice:0:100}}</p>
+      <div class="font-weight-light">{{note.modifiedDate | date:'medium'}}</div>
+      <div class="my-1 note-tags">
+      <a class="mybadge m-1" *ngFor="let tag of note.tags">{{tag.name}}</a>
+      </div>
+      <hr>
+      <a [routerLink]="['/edit', note.id]" class="card-link btn btn-primary"><i class="fas fa-edit"></i></a>
+      <a href="#" class="card-link btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+    </div>
+  </div>
+</div>
