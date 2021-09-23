@@ -1,31 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Note } from '../core/models/note.model';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/compat/database';
+import { NoteService } from '../core/services/note.service';
+import { Tag } from '../core/models/tag.model';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [NoteService]
 })
 export class HomeComponent implements OnInit {
-  path:string='../application.json';
-
-  constructor() { }
-
+  public thenotes;
+  constructor(db: AngularFireDatabase, noteService: NoteService) {
+    this.thenotes=noteService.getNotes();
+  }
   ngOnInit(): void {
-    var fs = require('fs');
-    var menObject;
-    
-    // Read the file, and pass it to your callback
-    fs.readFile('../application.json, handleJSONFile');
-    
-    // Handle the data 
-    var handleJSONFile = function (err, data) {
-        if (err) {
-            throw err;
-        }
-        menObject = JSON.parse(data);
-    }
-    console.log(menObject);
   }
 
 }

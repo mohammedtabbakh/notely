@@ -30,7 +30,7 @@ export class EditNoteComponent implements OnInit {
 
   ngOnInit() {
     this.noteId = this.route.snapshot.params['id'];
-    this.note = this.noteService.getNoteById(this.noteId);
+    // this.note = this.noteService.getNoteById(this.noteId.toString);
     console.log( this.noteId);
     console.log(this.note);
     this.tags=this.tagsService.getTags();

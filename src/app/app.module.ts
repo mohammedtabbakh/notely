@@ -12,9 +12,9 @@ import { NoteListComponent } from './note-list/note-list.component';
 import { NoteComponent } from './note-list/note/note.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 @NgModule({
   declarations: [
@@ -32,8 +32,8 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
     FormsModule,
     NgSelectModule,
-    AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig) 
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
 
   providers: [],

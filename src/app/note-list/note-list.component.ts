@@ -9,12 +9,16 @@ import { NoteService } from '../core/services/note.service';
   providers:[NoteService]
 })
 export class NoteListComponent implements OnInit {
-   notes: Note[];
+   notes;
   
-  constructor(private noteService: NoteService) { }
+  constructor(private noteService: NoteService) {
+    this.notes = this.noteService.getNotes();
+    console.log(this.noteService.getNotes());
+   }
 
   ngOnInit() {
-    this.notes = this.noteService.getNotes();
+ 
+
   }
 
 }
