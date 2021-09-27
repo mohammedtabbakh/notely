@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/notely",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
