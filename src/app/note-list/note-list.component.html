@@ -1,6 +1,17 @@
 <div class="row">
   <div class="col-3">
-    <app-sidebar></app-sidebar>
+    <div class="container mt-5" >
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center active fs-5 fw-bold list-group-item-info">
+          Tags
+        </li>
+        <li class="list-group-item list-group-item-action" *ngFor="let tag of tags" (click)="OnTagClick(tag)">
+          <i class="fas fa-bookmark tag-icon text-secondary"></i>
+          <span class="m-3 text-dark text-capitalize">{{tag.name}}</span>
+          <span class="badge bg-secondary rounded-pill float-end">{{tag.count}}</span>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="col-9">
     <div class="row m-1" >

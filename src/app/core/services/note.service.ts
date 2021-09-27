@@ -12,8 +12,9 @@ export class NoteService {
     new Note(1, 'test note1', 'this is just a test for note details field in no details field in no details field in no details field in no details field in notetly app', Date.now(), [new Tag('music', Date.now(), 1)]),
     new Note(2, 'test note2', 'this is just a test for note details field in no details field in no details field in no details field in no details field in notetly app', Date.now(), [new Tag("todolist"), new Tag("work")]),
     new Note(3, 'test note3', 'this is just a test for note details field in no details field in no details field in no details field in no details field in notetly app', Date.now(), [new Tag("music"), new Tag("work")]),
-    new Note(4, 'test note4', 'this is just a test for note details field in no details field in no details field in no details field in no details field in notetly app', Date.now(), [new Tag("music"), new Tag("todolist"), new Tag("work")]),
-    new Note(5, 'test note5', 'this is just a test for note details field in no details field in no details field in no details field in no details field in notetly app', Date.now(), [new Tag("music"), new Tag("todolist"), new Tag("work"), new Tag("work")]),
+    new Note(4, 'test note4', 'this is just a test for note details field in no details field in no details field in no details field in no details field in notetly app', Date.now(), [new Tag("music"), new Tag("todo"), new Tag("work")]),
+    new Note(5, 'test note5', 'this is just a test for note details field in no details field in no details field in no details field in no details field in notetly app', Date.now(), [new Tag("music"), new Tag("todo"), new Tag("work")]),
+    new Note(6, 'test note6', 'this is just a test for note details field in no details field in no details field in no details field in no details field in notetly app', Date.now(), [new Tag("movies"), new Tag("todo"), new Tag("work")]),
   ]
   tags: Tag[];
   note = null;
@@ -94,8 +95,8 @@ export class NoteService {
         noteIndex = index;
     });
     return noteIndex;
-
   }
+
   filterbyTag(tag: Tag) {
     let filteredNotes: Note[] = [];
     this.notes.forEach(item => {
