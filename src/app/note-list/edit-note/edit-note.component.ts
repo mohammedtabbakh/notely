@@ -12,12 +12,12 @@ import { Tag } from 'src/app/core/models/tag.model';
   selector: 'app-edit-note',
   templateUrl: './edit-note.component.html',
   styleUrls: ['./edit-note.component.css'],
-  providers: [NoteService,TagService]
+  providers: [TagService]
 })
 export class EditNoteComponent implements OnInit {
   //#region declerations
   note: Note;
-  noteId: number = 0;
+  noteId: string = '0';
   noteFormControl = new FormControl('');
   selectedTags:Tag[];
   tags:Tag[];
@@ -30,14 +30,11 @@ export class EditNoteComponent implements OnInit {
 
   ngOnInit() {
     this.noteId = this.route.snapshot.params['id'];
-    // this.note = this.noteService.getNoteById(this.noteId.toString);
-    console.log( this.noteId);
-    console.log(this.note);
-    this.tags=this.tagsService.getTags();
+    console.log(this.noteId);
+     this.note = this.noteService.getNodeById(parseInt(this.noteId));
   }
   saveChanges(){
     console.log(this.note);
-    console.log(this.selectedTags);
     this.noteService.editNote(this.note)
     this.router.navigate(['home']);
   }

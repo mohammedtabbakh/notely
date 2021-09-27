@@ -6,7 +6,6 @@ import { NoteService } from '../core/services/note.service';
   selector: 'app-note-list',
   templateUrl: './note-list.component.html',
   styleUrls: ['./note-list.component.css'],
-  providers:[NoteService]
 })
 export class NoteListComponent implements OnInit {
    notes;
@@ -15,10 +14,6 @@ export class NoteListComponent implements OnInit {
     this.notes = this.noteService.getNotes();
     console.log(this.noteService.getNotes());
    }
-
   ngOnInit() {
- 
-
   }
-
 }

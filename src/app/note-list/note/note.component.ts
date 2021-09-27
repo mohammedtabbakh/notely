@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Note } from 'src/app/core/models/note.model';
+import { NoteService } from 'src/app/core/services/note.service';
 
 @Component({
   selector: 'app-note',
@@ -8,10 +9,12 @@ import { Note } from 'src/app/core/models/note.model';
 })
 export class NoteComponent implements OnInit {
 @Input() note:Note;
-  constructor() { }
+  constructor( private noteService: NoteService) { }
 
   ngOnInit() {
   console.log(this.note);
   }
-
+  onDeleteClicks(){
+    this.noteService.DeleteNote(this.note.id);
+  }
 }

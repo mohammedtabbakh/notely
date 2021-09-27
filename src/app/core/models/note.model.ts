@@ -1,7 +1,7 @@
 import { Tag } from "./tag.model";
 
 export class Note {
-    $key:number
+    $key:string
     id:number;
     title: string;
     details: string;
