@@ -15,6 +15,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { NoteService } from './core/services/note.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     AngularFireDatabaseModule
   ],
 
-  providers: [],
+  providers: [NoteService],
   bootstrap: [HomeComponent]
 })
 export class AppModule { }

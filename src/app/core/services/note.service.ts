@@ -3,8 +3,10 @@ import { Note } from '../models/note.model'
 import { Tag } from '../models/tag.model';
 import { DatabaseService } from './db.service';
 import { Observable } from 'rxjs';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
-@Injectable()
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/compat/database';
+@Injectable({
+  providedIn: 'root',
+})
 export class NoteService {
   notes: Note[]=[];
   tags: Tag[];
