@@ -2,7 +2,7 @@ import { switchMap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
+import { FormControl, NgModel } from '@angular/forms';
 import { NoteService } from 'src/app/core/services/note.service';
 import { Note } from 'src/app/core/models/note.model';
 import { TagService } from 'src/app/core/services/tag.service';
@@ -16,11 +16,10 @@ import { Tag } from 'src/app/core/models/tag.model';
 })
 export class EditNoteComponent implements OnInit {
   //#region declerations
-  note: Note;
+  note: Note = new Note(0, ' ', ' ', Date.now(), null, null);
   noteId: string = '0';
-  noteFormControl = new FormControl('');
-  selectedTags:Tag[];
-  tags:Tag[];
+  selectedTags: Tag[];
+  tags: Tag[];
   //#endregion
 
   constructor(private route: ActivatedRoute,
@@ -29,13 +28,22 @@ export class EditNoteComponent implements OnInit {
     private tagsService: TagService) { }
 
   ngOnInit() {
+    this.tags=this.tagsService.getTags();
     this.noteId = this.route.snapshot.params['id'];
-    console.log(this.noteId);
-     this.note = this.noteService.getNodeById(parseInt(this.noteId));
+    if (this.noteId == undefined)
+      this.note = new Note();
+    else
+      this.note = this.noteService.getNodeById(parseInt(this.noteId));
+
   }
-  saveChanges(){
+  saveChanges() {
     console.log(this.note);
-    this.noteService.editNote(this.note)
+    if (this.note.id == undefined)
+      this.noteService.addNote(this.note)
+
+    else
+      this.noteService.editNote(this.note)
+
     this.router.navigate(['home']);
   }
 }

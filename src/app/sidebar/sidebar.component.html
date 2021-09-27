@@ -1,5 +1,12 @@
-<div class="container bg-danger">
-  <div class="sidebaritem" *ngFor="let tag of tags">
-    <a><i class="fas fa-bookmark"></i>{{tag.name}}</a>
-  </div>
+<div class="container mt-5" >
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center active fs-5 fw-bold list-group-item-info">
+      Tags
+    </li>
+    <li class="list-group-item list-group-item-action" *ngFor="let tag of tags" (click)="OnTagClick(tag)">
+      <i class="fas fa-bookmark tag-icon text-secondary"></i>
+      <span class="m-3 text-dark text-capitalize">{{tag.name}}</span>
+      <span class="badge bg-primary rounded-pill float-end">11</span>
+    </li>
+  </ul>
 </div>

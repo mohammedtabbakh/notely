@@ -1,5 +1,6 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, EventEmitter, Injectable, OnInit, Output } from '@angular/core';
 import { Tag } from '../core/models/tag.model';
+import { FilterService } from '../core/services/filter.service';
 import { TagService } from '../core/services/tag.service';
 
 @Component({
@@ -9,13 +10,16 @@ import { TagService } from '../core/services/tag.service';
   providers: [TagService]
 })
 export class SidebarComponent implements OnInit {
-  tags:Tag[]=[];
-  constructor(private tagservice: TagService) {
-   
+  tags: Tag[] = [];
+  constructor(private tagservice: TagService,private filterService: FilterService) {
   }
 
   ngOnInit() {
-     this.tags = this.tagservice.getTags();
+    this.tags = this.tagservice.getTags();
   }
 
+  OnTagClick(value: Tag) {
+    alert();
+    this.filterService.invokeTagsChange(value);
+  }
 }

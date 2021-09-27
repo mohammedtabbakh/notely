@@ -8,12 +8,19 @@ import { NoteService } from '../core/services/note.service';
   styleUrls: ['./note-list.component.css'],
 })
 export class NoteListComponent implements OnInit {
-   notes;
-  
+  notes;
+  subscription;
   constructor(private noteService: NoteService) {
-    this.notes = this.noteService.getNotes();
-    console.log(this.noteService.getNotes());
-   }
+  }
   ngOnInit() {
+    this.subscription = this.noteService.getNotesChangeEmitter()
+      .subscribe(item => this.updateNotes(item));
+      this.noteService.emitNotesChangeEvent(this.notes);
+
+  }
+  
+  updateNotes(notes) {
+    alert("updateNotes");
+    this.notes = notes;
   }
 }

@@ -16,6 +16,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { NoteService } from './core/services/note.service';
+import { FilterService } from './core/services/filter.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { NoteService } from './core/services/note.service';
     AngularFireDatabaseModule
   ],
 
-  providers: [NoteService],
+  providers: [NoteService,FilterService],
   bootstrap: [HomeComponent]
 })
 export class AppModule { }

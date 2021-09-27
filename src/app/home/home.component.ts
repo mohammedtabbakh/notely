@@ -1,10 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Note } from '../core/models/note.model';
-import { Observable } from 'rxjs';
-import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/compat/database';
+import { Component, OnInit,Input } from '@angular/core';
 import { NoteService } from '../core/services/note.service';
-import { Tag } from '../core/models/tag.model';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,10 +8,12 @@ import { Tag } from '../core/models/tag.model';
 })
 export class HomeComponent implements OnInit {
   public thenotes;
-  constructor(db: AngularFireDatabase, noteService: NoteService) {
-    this.thenotes=noteService.getNotes();
+  constructor() {
   }
   ngOnInit(): void {
   }
-
+  OnChange(tag){
+    alert();
+    console.log(tag);
+  }
 }
