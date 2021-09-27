@@ -1,4 +1,8 @@
-<form class="m-2" (ngSubmit)="saveChanges()">
+
+<div class="container-fluid">
+<h1 *ngIf="note.id==undefined" class="fw-bold m-4"> Add new Note</h1>
+<h1 *ngIf="note.id!=undefined" class="fw-bold m-4 "> Edit Note</h1>
+<form class="m-4" (ngSubmit)="saveChanges()">
   <!-- 2 column grid layout with text inputs for the first and last names -->
   <div class="row mb-4">
     <div class="col">
@@ -14,7 +18,7 @@
     <textarea id="noteDetails" class="form-control" name="noteDetails" [(ngModel)]="note.details"></textarea>
   </div>
   <div class="form-outline mb-4">
-    <label class="form-label" for="tags">Note details</label>
+    <label class="form-label" for="tags">Tags</label>
     <ng-select
     [items]="tags"
     [multiple]="true"
@@ -31,3 +35,4 @@
   <button type="submit" class="btn btn-primary btn-block mb-4">Save Changes</button>
 
 </form>
+</div>  

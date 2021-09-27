@@ -13,12 +13,12 @@ export class NoteListComponent implements OnInit {
   constructor(private noteService: NoteService) {
   }
   ngOnInit() {
-    this.subscription = this.noteService.getNotesChangeEmitter()
-      .subscribe(item => this.updateNotes(item));
-      this.noteService.emitNotesChangeEvent(this.notes);
-
+    // this.subscription = this.noteService.getNotesChangeEmitter()
+    //   .subscribe(item => this.updateNotes(item));
+    //   this.noteService.emitNotesChangeEvent(this.notes);
+    this.notes = this.noteService.getNotes();
   }
-  
+
   updateNotes(notes) {
     alert("updateNotes");
     this.notes = notes;
